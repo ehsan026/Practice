@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Slab', serif;
+        }
+
+        body{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgb(123, 7, 255);
+        }
+        
+        #container{
+            background: #FB2576;
+            color: white;
+            width: 400px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+        #container h1{
+            font-size: 55px;
+            text-align: center;
+        }
+        #container #contant #time{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        #container #contant #time h2{
+            font-size: 40px;
+            font-weight: 500;
+        }
+        #container #contant #dates{
+            width: 60%;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            text-align: center;
+            margin-left: 77px;
+            margin-top: 20px;
+        }
+        #container #contant #dates h2{
+            font-size: 18px;
+            font-weight: 400;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Watch</h1>
+        <div id="contant">
+            <div id="time">
+                <h2 id="hour"></h2>
+                <h2 id="minute"></h2>
+                <h2 id="second"></h2>
+            </div>
+            <div id="dates">
+                <h2 id="day"></h2>
+                <h2 id="date"></h2>
+                <h2 id="month"></h2>
+            </div>
+        </div>
+    </div>
+    <script>
+        let hour = document.getElementById('hour')
+        let minute = document.getElementById('minute')
+        let second = document.getElementById('second')
+        let day = document.getElementById('day')
+        let dates = document.getElementById('date')
+        let month = document.getElementById('day')
+
+        setInterval(mytimer,1000)
+        
+
+        function mytimer(){
+            let time = new Date();
+
+            //get time
+            let Hours = time.getHours();
+            let Minutes = time.getMinutes();
+            let Seconds = time.getSeconds();
+
+            //get date
+            let Day = time.getDay();
+            let Dates = time.getDate();
+            let Month = time.getMonth();
+
+            //final time
+            let Showhours = Hours;
+            let Showminutes = Minutes;
+            let Showseconds = Seconds;
+
+            //final dates
+            let ShowDay = Day;
+            let Showdates = Dates;
+            let Showmonth = Month;
+
+            //add in time
+            hour.innerHTML = Showhours;
+            minute.innerHTML = Showminutes;
+            second.innerHTML = Showseconds;
+
+            //add in date
+            day.innerHTML = ShowDay;
+            dates.innerHTML = Showdates;
+            month.innerHTML = Showmonth;
+
+            let Dayword = '';
+
+            if (ShowDay == 1) {
+                Dayword = 'Mon';
+            }
+            else if (ShowDay == 2) {
+                Dayword = 'Tue';         
+            }
+            else if (ShowDay == 3) {
+                Dayword = 'Wed';
+            }
+            else if (ShowDay == 4) {
+                Dayword = 'Thu';
+            }
+            else if (ShowDay == 5) {
+                Dayword = 'Fri';
+            }
+            else if (ShowDay == 6) {
+                Dayword = 'Sat';
+            }
+            else if (ShowDay == 7) {
+                Dayword = 'Sun';
+            }
+            console.log(ShowDay);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch WIth Date</title>
+</head>
+<body>
+    
+    <h2 id="CurrentTime"></h2>
+    <p id="CurrentDate"></p>
+
+    <script>
+        let TimeBox = document.getElementById('CurrentTime');
+        let DateBox = document.getElementById('CurrentDate');
+
+
+        function Time(){
+
+            let GetTime = new Date;            
+
+            // Get Time
+            let Hours = GetTime.getHours();
+            let Minuts = GetTime.getMinutes();
+            let Seconds = GetTime.getSeconds();
+            
+            // Get Date
+            let Day = GetTime.getDate();
+            let Month = GetTime.getMonth();
+            let Year = GetTime.getFullYear();
+            
+            // Final Time
+            let FinalTIme = `${Hours} : ${Minuts} : ${Seconds}`
+            // Final Date
+            let FinalDate = `${Day} : ${Month} : ${Year}`;
+
+            // Insert in the HTML Time and Date
+            TimeBox.innerHTML = FinalTIme;
+            DateBox.innerHTML = FinalDate;
+
+        }
+
+        setInterval(Time,1000);
+
+        Time();
+
+
+    </script>
+    
+</body>
+</html>

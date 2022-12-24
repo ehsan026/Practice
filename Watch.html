@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto Slab', serif;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background: #2192FF;
+        }
+        h1{
+            background: #FF1E1E;
+            color: white;
+            width: 250px;
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 5px;
+            font-size: 45px;
+        }
+        #contant{
+            width: 350px;
+            padding: 20px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        #contant h1{
+            width: 25%;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-size: 45px;
+        }
+        #contant h1#h,#m,#s{
+            background: #FF1E1E;
+        }
+    </style>
+</head>
+<body>
+        <h1>Watch</h1>
+        <div id="contant">
+            <h1 id="Hour"></h1>
+            <h1 id="Minute"></h1>
+            <h1 id="Second"></h1>
+        </div>
+        
+
+        <script>
+
+            let Hour = document.getElementById('Hour')
+            let Minute = document.getElementById('Minute')
+            let Second = document.getElementById('Second')
+
+            setInterval(myTimer, 1000)
+                    
+            function myTimer() {
+                let Time = new Date;
+                let Hours = Time.getHours();
+                let Minuts = Time.getMinutes();
+                let Seconds = Time.getSeconds();
+                let ShowHour = `${Hours}`
+                let ShowMinute = `${Minuts}`
+                let ShowSecond = `${Seconds}`
+                Hour.innerHTML = ShowHour;
+                Minute.innerHTML = ShowMinute;
+                Second.innerHTML = ShowSecond;
+            }
+
+        </script>
+    </body>
+</html>
